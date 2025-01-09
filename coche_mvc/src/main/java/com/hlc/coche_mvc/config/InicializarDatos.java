@@ -1,34 +1,35 @@
+
 package com.hlc.coche_mvc.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.hlc.coche_mvc.entidad.Producto;
-import com.hlc.coche_mvc.servicio.ProductoServicio;
+import com.hlc.coche_mvc.entidad.Coche;
+import com.hlc.coche_mvc.servicio.CocheServicio;
 
 import jakarta.annotation.PostConstruct;
 
 @Component
 public class InicializarDatos {
-	@Autowired
-	private ProductoServicio productoServicio;
-	
-	@PostConstruct
-	public void init() {
-		if (productoServicio.listarTodosLosProductos().iterator().hasNext()) {
-			return;
-		}
-		
-		Producto coche1 = new Producto();
-		coche1.setMarca("Ford");
-		coche1.setMatrícula(new String("FNA-5482"));
-		coche1.setColor(new String("Rojo"));
-		productoServicio.guardarProducto(coche1);
-		
-		Producto coche2 = new Producto();
-		coche1.setMarca("Ford");
-		coche1.setMatrícula(new String("FNA-5482"));
-		coche1.setColor(new String("Rojo"));
-		productoServicio.guardarProducto(coche1);
-	}
+	 @Autowired
+	    private CocheServicio cocheServicio;
+	    
+	    @PostConstruct
+	    public void init() {
+	        if (cocheServicio.listarTodosLosCoches().iterator().hasNext()) {
+	            return;
+	        }
+	        
+	        Coche coche1 = new Coche();
+	        coche1.setMarca("Ford");
+	        coche1.setMatrícula("AAA-1616");
+	        coche1.setColor("Negro");
+	        cocheServicio.guardarCoche(coche1);
+	        
+	        Coche coche2 = new Coche();
+	        coche2.setMarca("Coche 2");
+	        coche2.setMatrícula("EEE-1212");
+	        coche2.setColor("Azul");
+	        cocheServicio.guardarCoche(coche2);
+	    }
 }
