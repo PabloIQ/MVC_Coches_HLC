@@ -27,7 +27,7 @@ public class InicializarDatos {
 	        cocheServicio.guardarCoche(coche1);
 	        
 	        Coche coche2 = new Coche();
-	        coche2.setMarca("Coche 2");
+	        coche2.setMarca("Mazda");
 	        coche2.setMatrícula("EEE-1212");
 	        coche2.setColor("Azul");
 	        cocheServicio.guardarCoche(coche2);
