@@ -5,31 +5,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.hlc.coche_mvc.entidad.Coche;
+import com.hlc.coche_mvc.repositorio.CocheRepositorio;
 import com.hlc.coche_mvc.servicio.CocheServicio;
 
 import jakarta.annotation.PostConstruct;
 
 @Component
 public class InicializarDatos {
-	 @Autowired
-	    private CocheServicio cocheServicio;
-	    
-	    @PostConstruct
-	    public void init() {
-	        if (cocheServicio.listarTodosLosCoches().iterator().hasNext()) {
-	            return;
-	        }
-	        
-	        Coche coche1 = new Coche();
-	        coche1.setMarca("Ford");
-	        coche1.setMatrícula("AAA-1616");
-	        coche1.setColor("Negro");
-	        cocheServicio.guardarCoche(coche1);
-	        
-	        Coche coche2 = new Coche();
-	        coche2.setMarca("Mazda");
-	        coche2.setMatrícula("EEE-1212");
-	        coche2.setColor("Azul");
-	        cocheServicio.guardarCoche(coche2);
-	    }
+	 
+	 private CocheRepositorio cocheRepositorio;
+	 
+	 /* @Autowired (en lugar de llamar al repositorio  */
+	 public InicializarDatos(CocheRepositorio cocheRepositorio) {
+		 this.cocheRepositorio = cocheRepositorio;
+	 }
+	 
+	 @PostConstruct
+	 public void init() {
+		 Coche coche1 = new Coche("Toyota", "1234ABC", "Rojo");
+		 Coche coche2 = new Coche("Ford", "9876FGT", "Verde");
+		 Coche coche3 = new Coche("Honda", "7645ERF", "Amarillo");
+		 
+		 cocheRepositorio.save(coche1);
+		 cocheRepositorio.save(coche2);
+		 cocheRepositorio.save(coche3);
+	 }
 }
