@@ -1,0 +1,43 @@
+body {
+    font-family : arial;
+    color: blue;
+    background-color: lightgray;
+}
+
+h1 {
+    color: darkblue
+}
+
+h2 {
+    color: cadetblue;
+}
+
+h3 {
+    color: darkslateblue;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover, a:visited {
+    color: blue;
+}
+
+table, tr, th, td {
+    border: solid 1px darkcyan;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+th {
+    font-size: x-small;
+}
+
+td {
+    text-align: center;
+}
+
+div.error {
+    color: red;
+}

@@ -18,6 +18,17 @@ public class Coche {
 	
 	private String Color;
 
+	public Coche() {
+		
+	}
+	
+	public Coche(String marca, String matrícula, String color) {
+		super();
+		Marca = marca;
+		Matrícula = matrícula;
+		Color = color;
+	}
+
 	public Long getId() {
 		return id;
 	}
