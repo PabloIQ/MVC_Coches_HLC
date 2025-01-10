@@ -1,6 +1,7 @@
 package com.hlc.coche_mvc.servicio;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -45,6 +46,12 @@ class CocheServicioImplTest {
 		Integer resultado = coche_servicio.size();
 		
 		assertEquals(resultadoEsperado, resultado);
-		verify(cocheRepositorio, times(1)).findall();
+		verify(cocheRepositorio, times(1)).findAll();
 	}
+	
+	@Test
+	void testGuardarCoche() {
+		
+	}
+
 }
